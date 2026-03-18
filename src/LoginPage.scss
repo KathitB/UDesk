@@ -136,14 +136,12 @@
   height: 28px;
   border: none;
   background: transparent;
-  color: #5c7188;
   cursor: pointer;
   border-radius: 50%;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.2s ease;
 
   &:hover {
     background: rgba(31, 79, 130, 0.08);
-    color: #1f4f82;
   }
 
   &:focus-visible {
@@ -151,10 +149,10 @@
     outline-offset: 2px;
   }
 
-  svg {
+  img {
     width: 18px;
     height: 18px;
-    fill: currentColor;
+    display: block;
   }
 }
 
