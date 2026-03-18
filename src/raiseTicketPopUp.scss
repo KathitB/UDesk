@@ -1,0 +1,349 @@
+.raise-ticket-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(75, 131, 188, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 1100;
+}
+
+.raise-ticket-modal {
+  position: relative;
+  width: min(1000px, calc(100vw - 64px));
+  height: min(620px, calc(100vh - 48px));
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.22);
+}
+
+.raise-ticket-close {
+  position: absolute;
+  top: 14px;
+  right: 27px;
+  width: 32px;
+  height: 36px;
+  border: none;
+  border-radius: 6px;
+  background: #fb5f2d;
+  color: #ffffff;
+  font-size: 34px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.raise-ticket-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.25fr;
+  height: 100%;
+}
+
+.raise-ticket-hero {
+  background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
+  // padding: 88px 48px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.raise-ticket-heading {
+  margin: 0;
+  color: #fb5f2d;
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.raise-ticket-hero-image {
+  width: min(430px, 100%);
+  height: auto;
+  object-fit: fill;
+}
+
+.raise-ticket-creator {
+  width: 100%;
+  max-width: 410px;
+  border-radius: 14px;
+  background: #fb6a33;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 22px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.raise-ticket-creator-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #fb6a33;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.raise-ticket-form-panel {
+  padding: 84px 36px 36px;
+  overflow-y: auto;
+}
+
+.raise-ticket-form-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.raise-ticket-form-panel::-webkit-scrollbar-thumb {
+  background: #8a8a8a;
+  border-radius: 999px;
+}
+
+.raise-ticket-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 28px;
+}
+
+.raise-ticket-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #2f3135;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.raise-ticket-field strong {
+  color: #fb5f2d;
+}
+
+.raise-ticket-field--full {
+  margin-top: 22px;
+}
+
+.raise-ticket-field textarea {
+  width: 100%;
+  border: 1px solid #d8dce3;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #2f3135;
+  font-size: 18px;
+  font-family: inherit;
+}
+
+.raise-ticket-field textarea {
+  min-height: 150px;
+  padding: 16px 14px;
+  resize: vertical;
+}
+
+.raise-ticket-dropdown {
+  position: relative;
+}
+
+.raise-ticket-dropdown-trigger {
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  border: 1px solid #d8dce3;
+  border-radius: 8px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 14px;
+  cursor: pointer;
+}
+
+.raise-ticket-dropdown.is-open .raise-ticket-dropdown-trigger {
+  border-color: #2f80ff;
+  box-shadow: 0 0 0 1px #2f80ff;
+}
+
+.raise-ticket-dropdown.is-disabled .raise-ticket-dropdown-trigger {
+  background: #f3f4f6;
+  color: #8a8f98;
+  cursor: not-allowed;
+}
+
+.raise-ticket-dropdown-value {
+  flex: 1;
+  min-width: 0;
+  color: #8b8b8b;
+  font-size: 18px;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.raise-ticket-dropdown-input {
+  flex: 1;
+  min-width: 0;
+  height: auto;
+  border: none;
+  background: transparent;
+  color: #2f3135;
+  font-size: 18px;
+  line-height: 1.2;
+  font-family: inherit;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.raise-ticket-dropdown-input::placeholder {
+  color: #8b8b8b;
+}
+
+.raise-ticket-dropdown-value.has-value {
+  color: #2f3135;
+}
+
+.raise-ticket-dropdown-arrow {
+  width: 34px;
+  min-width: 34px;
+  height: 22px;
+  border-left: 1px solid #d8dce3;
+  color: #6a6f78;
+  font-size: 18px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-1px);
+}
+
+.raise-ticket-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  max-height: 340px;
+  overflow-y: auto;
+  border: 1px solid #d8dce3;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.14);
+  z-index: 5;
+}
+
+.raise-ticket-dropdown-menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+.raise-ticket-dropdown-menu::-webkit-scrollbar-thumb {
+  background: #275f93;
+  border-radius: 999px;
+}
+
+.raise-ticket-dropdown-option {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: #2f3135;
+  display: block;
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 18px;
+  line-height: 1.45;
+  cursor: pointer;
+}
+
+.raise-ticket-dropdown-option:hover {
+  background: #eef5ff;
+}
+
+.raise-ticket-dropdown-option.is-selected {
+  background: #d8e8ff;
+}
+
+.raise-ticket-dropdown-empty {
+  padding: 16px;
+  color: #6a6f78;
+  font-size: 16px;
+  text-align: left;
+}
+
+.raise-ticket-error {
+  color: #b42318;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.raise-ticket-upload {
+  margin-top: 34px;
+}
+
+.raise-ticket-upload-label {
+  margin: 0 0 12px;
+  color: #2f3135;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.raise-ticket-upload-box {
+  min-height: 180px;
+  border: 1px solid #d8dce3;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 24px;
+}
+
+.raise-ticket-upload-icon {
+  width: 74px;
+  height: 74px;
+  border: 4px solid #fb6a33;
+  border-radius: 20px;
+  color: #fb6a33;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 46px;
+  font-weight: 700;
+}
+
+.raise-ticket-upload-text {
+  margin: 0;
+  color: #2f3135;
+  font-size: 17px;
+  text-align: center;
+}
+
+.raise-ticket-upload-link {
+  border: none;
+  background: transparent;
+  color: #2f67a0;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+.raise-ticket-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 38px;
+}
+
+.raise-ticket-submit {
+  min-width: 210px;
+  border: none;
+  border-radius: 6px;
+  background: #2f67a0;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 14px 24px;
+  cursor: pointer;
+}

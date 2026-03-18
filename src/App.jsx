@@ -1,0 +1,27 @@
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import LoginPage from "./LoginPage";
+import Dashboard from "./Dashboard";
+import Tickets from "./Tickets";
+import { Route, Routes } from "react-router-dom";
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <>
+      {/* <LoginPage /> */}
+      {/* <Dashboard /> */}
+
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/tickets" element={<Tickets />} />
+      </Routes>
+    </>
+  );
+}
+
+export default App;
