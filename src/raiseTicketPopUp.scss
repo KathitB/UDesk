@@ -301,6 +301,10 @@
   padding: 24px;
 }
 
+.raise-ticket-file-input {
+  display: none;
+}
+
 .raise-ticket-upload-icon {
   width: 74px;
   height: 74px;
@@ -325,6 +329,33 @@
   border: none;
   background: transparent;
   color: #2f67a0;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+.raise-ticket-uploaded-file {
+  max-width: 100%;
+  border-radius: 10px;
+  background: #f4f8fc;
+  color: #2f3135;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+}
+
+.raise-ticket-uploaded-file span {
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.raise-ticket-upload-remove {
+  border: none;
+  background: transparent;
+  color: #b42318;
   font: inherit;
   cursor: pointer;
   padding: 0;

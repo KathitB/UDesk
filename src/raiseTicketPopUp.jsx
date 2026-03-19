@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import popupImage from "./assets/popupimage.png";
 import "./raiseTicketPopUp.scss";
 
@@ -109,9 +109,11 @@ export default function RaiseTicketPopUp({ isOpen, onClose }) {
   const [selectedProblemCategory, setSelectedProblemCategory] = useState("");
   const [selectedSubCategory, setSelectedSubCategory] = useState("");
   const [selectedPriority, setSelectedPriority] = useState("");
+  const [selectedAttachment, setSelectedAttachment] = useState(null);
   const [categoryError, setCategoryError] = useState("");
   const [subCategoryError, setSubCategoryError] = useState("");
   const [openDropdown, setOpenDropdown] = useState("");
+  const fileInputRef = useRef(null);
 
   const problemCategoryUrl =
     "https://apionboarding.uds.in/ticketapp/clientissuelist/?search=&page_size=20&page=1";
@@ -216,6 +218,7 @@ export default function RaiseTicketPopUp({ isOpen, onClose }) {
   useEffect(() => {
     if (!isOpen) {
       setOpenDropdown("");
+      setSelectedAttachment(null);
     }
   }, [isOpen]);
 
@@ -239,6 +242,23 @@ export default function RaiseTicketPopUp({ isOpen, onClose }) {
     );
 
     setSelectedPriority(matchedSubCategory?.priority || "");
+  };
+
+  const handleBrowseFileClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleAttachmentChange = (event) => {
+    const [file] = event.target.files || [];
+    setSelectedAttachment(file || null);
+  };
+
+  const handleRemoveAttachment = () => {
+    setSelectedAttachment(null);
+
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
   };
 
   if (!isOpen) {
@@ -323,15 +343,37 @@ export default function RaiseTicketPopUp({ isOpen, onClose }) {
             <div className="raise-ticket-upload">
               <p className="raise-ticket-upload-label">Attachments Upload</p>
               <div className="raise-ticket-upload-box">
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  className="raise-ticket-file-input"
+                  onChange={handleAttachmentChange}
+                />
                 <div className="raise-ticket-upload-icon">
                   <span>^</span>
                 </div>
                 <p className="raise-ticket-upload-text">
                   Drag your files here to upload or{" "}
-                  <button type="button" className="raise-ticket-upload-link">
+                  <button
+                    type="button"
+                    className="raise-ticket-upload-link"
+                    onClick={handleBrowseFileClick}
+                  >
                     Browse file
                   </button>
                 </p>
+                {selectedAttachment ? (
+                  <div className="raise-ticket-uploaded-file">
+                    <span>{selectedAttachment.name}</span>
+                    <button
+                      type="button"
+                      className="raise-ticket-upload-remove"
+                      onClick={handleRemoveAttachment}
+                    >
+                      Remove the attachrment
+                    </button>
+                  </div>
+                ) : null}
               </div>
             </div>
 
