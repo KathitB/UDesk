@@ -9,6 +9,7 @@ import sidebarTicketsIcon from "./assets/sidebartickets.png";
 import uDeskLogo from "./assets/UDeskLogo.svg";
 import Notification from "./Notification";
 import RaiseTicketPopUp from "./raiseTicketPopUp";
+import TicketInfoPopup from "./TicketInfoPopup";
 import "./Dashboard.scss";
 import "./Tickets.scss";
 
@@ -23,6 +24,7 @@ export default function Tickets() {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState("ticketNumber");
   const [sortOrder, setSortOrder] = useState("asc");
+  const [selectedTicket, setSelectedTicket] = useState(null);
 
   const notificationUrl =
     "https://apionboarding.uds.in/ticket/notification/?search=&page_size=10&page=1";
@@ -81,6 +83,7 @@ export default function Tickets() {
   const tabs = ["All", "Open", "In Progress", "Review", "Resolved", "Reopened"];
   const ticketRows = [
     {
+      ticketId: "69cf8fc6-c996-4794-9790-db055d0c5715",
       ticketNumber: "1245",
       created: "23 / 04 / 2025",
       category: "Payroll And Compensation",
@@ -88,8 +91,42 @@ export default function Tickets() {
       description: "Test",
       status: "In Progress",
       priority: "1",
+      priorityLabel: "Medium",
+      resolvedDate: "--",
+      assignee: "Ramkumar S",
+      phone: "8940996408",
+      createdBy: "Sathishkumar",
+      slaStatus: "Overdue",
+      remarks: "--",
+      tracking: [
+        {
+          key: "open",
+          date: "23 Apr 2025",
+          time: "05:57:14 PM",
+          completed: true,
+        },
+        {
+          key: "inprogress",
+          date: "15 Jun 2025",
+          time: "07:38:41 PM",
+          completed: true,
+        },
+        {
+          key: "review",
+          date: "--",
+          time: "--",
+          completed: false,
+        },
+        {
+          key: "resolved",
+          date: "--",
+          time: "--",
+          completed: false,
+        },
+      ],
     },
     {
+      ticketId: "demo-ticket-1243",
       ticketNumber: "1243",
       created: "18 / 04 / 2025",
       category: "Billing",
@@ -97,6 +134,39 @@ export default function Tickets() {
       description: "Po Number Mismatch",
       status: "Resolved",
       priority: "2",
+      priorityLabel: "High",
+      resolvedDate: "20 / 04 / 2025",
+      assignee: "Priya R",
+      phone: "8939442211",
+      createdBy: "Sathishkumar",
+      slaStatus: "Closed",
+      remarks: "Resolved after validating the billing mismatch.",
+      tracking: [
+        {
+          key: "open",
+          date: "18 Apr 2025",
+          time: "10:15:22 AM",
+          completed: true,
+        },
+        {
+          key: "inprogress",
+          date: "18 Apr 2025",
+          time: "01:10:45 PM",
+          completed: true,
+        },
+        {
+          key: "review",
+          date: "19 Apr 2025",
+          time: "11:42:03 AM",
+          completed: true,
+        },
+        {
+          key: "resolved",
+          date: "20 Apr 2025",
+          time: "04:28:17 PM",
+          completed: true,
+        },
+      ],
     },
   ];
 
@@ -323,7 +393,11 @@ export default function Tickets() {
               </thead>
               <tbody>
                 {filteredRows.map((row) => (
-                  <tr key={row.ticketNumber}>
+                  <tr
+                    key={row.ticketNumber}
+                    className="tickets-table-row"
+                    onClick={() => setSelectedTicket(row)}
+                  >
                     <td>{row.ticketNumber}</td>
                     <td>{row.created}</td>
                     <td>{row.category}</td>
@@ -370,6 +444,12 @@ export default function Tickets() {
       <RaiseTicketPopUp
         isOpen={isRaiseTicketOpen}
         onClose={() => setIsRaiseTicketOpen(false)}
+      />
+
+      <TicketInfoPopup
+        isOpen={Boolean(selectedTicket)}
+        ticket={selectedTicket}
+        onClose={() => setSelectedTicket(null)}
       />
     </div>
   );
