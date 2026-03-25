@@ -7,6 +7,7 @@ import Tickets from "./Tickets";
 import { Route, Routes } from "react-router-dom";
 import WorkFlowDashBoard from "./WORKFLOW/workFlowDashBoard";
 import Dashboard from "./Dashboard";
+import WorkflowDualDashboard from "./WORKFLOW/WorkflowDualDashboard";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/tickets" element={<Tickets />} />
         <Route path="/spanDashboard" element={<WorkFlowDashBoard />} />
+        <Route path="/dualDashboard" element={<WorkflowDualDashboard />} />
       </Routes>
     </>
   );

@@ -1,0 +1,378 @@
+.workflow-dual-dashboard {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(45, 110, 196, 0.06),
+      transparent 22%
+    ),
+    #ffffff;
+
+  // font-family: ;
+  font-family: Montserrat, sans-serif;
+}
+
+.workflow-dual-topbar {
+  align-items: flex-start;
+}
+
+.workflow-dual-breadcrumb {
+  padding-top: 4px;
+}
+
+.workflow-dual-date-range {
+  min-width: 320px;
+}
+
+.workflow-dual-date-range .MuiFormControl-root {
+  min-width: 328px;
+}
+
+.workflow-dual-date-range .MuiMultiInputDateRangeField-root,
+.workflow-dual-date-range .MuiPickersTextField-root,
+.workflow-dual-date-range .MuiTextField-root {
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+.workflow-dual-date-range .MuiOutlinedInput-root {
+  min-height: 42px;
+  border-radius: 10px;
+  color: #6e7d94;
+  font-size: 14px;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+}
+
+.workflow-dual-date-range .MuiOutlinedInput-notchedOutline {
+  border-color: #f47b38;
+}
+
+.workflow-dual-date-range
+  .MuiOutlinedInput-root:hover
+  .MuiOutlinedInput-notchedOutline,
+.workflow-dual-date-range
+  .MuiOutlinedInput-root.Mui-focused
+  .MuiOutlinedInput-notchedOutline {
+  border-color: #f47b38;
+  border-width: 1px;
+}
+
+.workflow-dual-date-range .MuiInputBase-input {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.workflow-dual-date-range .MuiSvgIcon-root {
+  color: #f47b38;
+}
+
+.workflow-dual-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 14px;
+}
+
+.workflow-dual-summary-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 96px;
+  padding: 18px 16px 16px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.workflow-dual-card-background-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.workflow-dual-summary-card-primary {
+  background-color: #0c4f82;
+  color: #ffffff;
+}
+
+.workflow-dual-summary-card-light {
+  background-color: #ffffff;
+  color: #0b1220;
+  border: 1px solid #eef2f7;
+}
+
+.workflow-dual-card-copy,
+.workflow-dual-card-icon-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+.workflow-dual-card-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.workflow-dual-card-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.workflow-dual-card-value {
+  margin: 0;
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 0.9;
+}
+
+.workflow-dual-summary-card-light .workflow-dual-card-value {
+  color: #000814;
+}
+
+.workflow-dual-card-icon-wrap {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.workflow-dual-card-icon-image {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+.workflow-dual-table-shell {
+  margin-top: 24px;
+  padding: 18px 18px 0;
+  border: 1px solid #edf1f5;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
+}
+
+.workflow-dual-table-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e7edf3;
+}
+
+.workflow-dual-tabs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.workflow-dual-tab {
+  min-width: 80px;
+  height: 42px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 8px;
+  background: #f3f6f9;
+  color: #1f5d92;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.workflow-dual-tab.is-active {
+  background: #1f5d92;
+  color: #ffffff;
+}
+
+.workflow-dual-entity-count {
+  color: #114d83;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.workflow-dual-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.workflow-dual-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 474px;
+  max-width: 100%;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid #d3d9e1;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.workflow-dual-search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #223145;
+  font-size: 16px;
+}
+
+.workflow-dual-search input::placeholder {
+  color: #8b97a8;
+}
+
+.workflow-dual-search-icon-image {
+  width: 18px;
+  height: 18px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.workflow-dual-download-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 6px;
+  background: #1f5d92;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.workflow-dual-download-icon {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.workflow-dual-empty-state {
+  min-height: 420px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 32px 16px 48px;
+}
+
+.workflow-dual-empty-title {
+  margin: 0 0 8px;
+  color: #113f6a;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.workflow-dual-empty-text {
+  margin: 0;
+  color: #6f7d91;
+  font-size: 15px;
+}
+
+.workflow-dual-entity-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px 68px;
+  max-height: 620px;
+  padding: 14px 0 26px;
+  overflow-y: auto;
+}
+
+.workflow-dual-entity-grid::-webkit-scrollbar {
+  width: 8px;
+}
+
+.workflow-dual-entity-grid::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: #a7b2c2;
+}
+
+.workflow-dual-entity-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 84px;
+  padding: 18px 18px 18px 32px;
+  border: 1px solid #dce3eb;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.workflow-dual-entity-status {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 14px solid #ff1c1c;
+}
+
+.workflow-dual-entity-status-completed {
+  border-left-color: #0a8d1d;
+}
+
+.workflow-dual-entity-status-pending {
+  border-left-color: #ff1c1c;
+}
+
+.workflow-dual-entity-copy {
+  min-width: 0;
+  flex: 1;
+}
+
+.workflow-dual-entity-title {
+  margin: 0 0 8px;
+  color: #00427d;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.workflow-dual-entity-zone {
+  margin: 0;
+  color: #1d2a38;
+  font-size: 15px;
+}
+
+.workflow-dual-entity-zone span {
+  color: #114d83;
+  font-weight: 700;
+  text-transform: lowercase;
+}
+
+.workflow-dual-entity-action {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ff5a2c;
+  color: #ffffff;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.workflow-dual-entity-action .MuiSvgIcon-root {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
